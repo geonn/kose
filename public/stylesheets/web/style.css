@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+html, p, ul, li{margin:0; padding:0; font-size:11px;}
+h1,h2,h3,h4,h5{text-align:justify; margin:10px 0; padding:0;}
+body {color: #555555; background: #e4ecef; font-family: "Segoe UI",Helvetica,Arial,"Sans-Serif"; font-size: 14px; font-weight: normal; line-height: 20px; margin:0px; padding:0; width: 100%;}
+img {border:0 none;}
+
+#wrapper {width:960px; margin:0 auto;}
+#content {padding: 10px;}
+#footer {font-size:12px; border-top:1px solid #555555; padding:10px; text-align:center;}
+
+p.normal{font-size:11px; text-align:justify; line-height: 14px;}
+.boxes li{
+	border: 1px solid #cfd5da;
+border-bottom-color: #ccd1d6;
+border-radius: 3px;
+width: 100px;
+height: 100px;
+float:left;
+list-style:none;
+margin-right: 10px;
+background:#e4ecef;
+cursor:pointer;
+text-align:center;
+vertical-align:middle;
+}
+.boxes li a{
+	display:block;
+	text-decoration:none;
+	height:100px;
+}
+.notice_message,.success_message,.error_message {padding:10px;color: #1D1D1D;width:auto;}
+.success_message {background: #BCFFB5;border: 1px solid #A3E59B;}
+.notice_message {background: #F4EF9A;border: 1px solid #F4EF9A;}
+.error_message {background: #FFB5B5;border: 1px solid #E09799;}

@@ -1,0 +1,71 @@
+html{height:100%} 
+body{font-size: 12px; height:100%;font-family:arial;}
+a{color: #000; text-decoration:none;}
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none; padding:4px 10px;height: 25px;font-size:12px;}
+input, button{padding:4px 10px;}
+/*--------------------------------------------------------------------------------------------------
+ 	 DEFAULT PAGE DEFINITIONS
+	 ID
+--------------------------------------------------------------------------------------------------*/
+#header{border-bottom:1px solid #999;}
+#header td{line-height:30px; padding: 5px 0;}
+#header a{padding:0 10px; border-right:1px solid #999; float:right;color: #ffffff;}
+#header a:hover{background:#555; color:#6CF;}
+#container{clear:both; height:100%;}
+#submenu{height:100%; float:left; border-right:1px solid #999; width:20%}
+#submenu li{padding:10px 15px; border-bottom:1px solid #999;
+background: -moz-linear-gradient(top,  #d67c7d 0%, #eee 0%, #ffffff 50%); /* FF3.6+ */
+background: -webkit-gradient(linear, color-stop(0%,#d67c7d), color-stop(0%,#eee), color-stop(50%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #d67c7d 0%,#eee 0%,#ffffff 50%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #d67c7d 0%,#eee 0%,#ffffff 50%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #d67c7d 0%,#eee 0%,#ffffff 50%); /* IE10+ */
+background: linear-gradient(to bottom,  #d67c7d 0%,#eee 0%,#ffffff 50%); /* W3C */
+}
+#submenu  .li-selected {padding:10px 15px; border-bottom:1px solid #999;
+background: -moz-linear-gradient(top,  #d67c7d 0%, #eee 0%, #C4C4C4 50%); /* FF3.6+ */
+background: -webkit-gradient(linear, color-stop(0%,#d67c7d), color-stop(0%,#eee), color-stop(50%,#C4C4C4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #d67c7d 0%,#eee 0%,#C4C4C4 50%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #d67c7d 0%,#eee 0%,#C4C4C4 50%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #d67c7d 0%,#eee 0%,#C4C4C4 50%); /* IE10+ */
+background: linear-gradient(to bottom,  #d67c7d 0%,#eee 0%,#C4C4C4 50%); /* W3C */
+}
+#submenu a{display:block;}
+#the_list{float:left; width:79.8%; height:100%;background: #eee; overflow: scroll; padding-bottom:50px;}
+#footer{position:fixed; background:#000000; color:#ffffff; bottom: 0; padding:10px; border-top: 1px solid #999; width:100%;}
+/*--------------------------------------------------------------------------------------------------
+ 	 DEFAULT PAGE DEFINITIONS
+	 CLASS
+--------------------------------------------------------------------------------------------------*/
+.pagination{ text-align:center;}
+.dashboard_button{float:left;margin:10px;width:25%;border:1px black solid;}
+.dashboard_button:hover{background-color: #F4EF9A;
+    -webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;}
+.dashboard_button a{display:block; padding:10px;}
+table.bordered{width: 100%; background:#eee;}
+table.bordered td{background: #fff; padding: 5px 10px; position: relative;line-height: 25px}
+table.bordered th{color: #fff; text-shadow:1px 1px 1px #333; padding: 5px 10px; position: relative;background:#333;}
+table.bordered th a{color: #fff; text-shadow:1px 1px 1px #333; text-decoration:underline;}
+table.bordered th a span{position:absolute; top:0;}
+.search_panel{margin: 5px 0;}
+.separator:after{content: " \00bb" }
+.container_header{border-bottom:1px solid #999; font-size: 16px;}
+.notice_message,.success_message,.error_message {padding:10px;color: #1D1D1D;width:auto;}
+.success_message {background: #BCFFB5;border: 1px solid #A3E59B;}
+.notice_message {background: #F4EF9A;border: 1px solid #F4EF9A;}
+.error_message {background: #FFB5B5;border: 1px solid #E09799;}
+.title {color: #666666;font-size:14px;font-weight:bold;}
+.desc {color: #A2A2A2;font-size:10px;}
+.header_title{float:left; padding:0 10px; border-right:1px solid #999; margin:5px 0;line-height: 25px;}
+.preview {
+  width: 540px;
+  height: 140px;
+  border: 1px solid #cccccc;
+}
+.gradient{
+	background: #000000;
+}
+.red_dot{color:#ff0000;}
