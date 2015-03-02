@@ -14,7 +14,15 @@ class congratulation extends Web_Controller {
 		$data['info'] =$this->contestant_model->find_by(decode_key($key));
 		if($this->voucher_model->checkAvailableByTime())
 		{
-			$this->voucher_model->getPrizeByState($data['info']['state']);
+			$prize = $this->voucher_model->getPrizeByState($data['info']['state']);
+			if($prize){
+				$data['prize'] = $prize;
+				$data['message'] = $this->contestant_model->winPrize($prize, $data['info']);
+			}else{
+				$data['message'] = 'Better luck nexttime (100% lose bcos of no more prize available)';
+			}
+		}else{
+			$data['message'] = 'Better luck nexttime (100% lose bcos of this perior no more prize available)';
 		}
 		$this->_render_form('index',$data);
 	}

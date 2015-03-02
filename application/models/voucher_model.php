@@ -10,6 +10,13 @@ class Voucher_Model extends APP_Model{
 		$this->_result['data']       = array();	
 	}
 	
+	public function checkWonBefore($allId){
+		$sql = implode($allId, ",");
+		$search = "contestant_id in(".$sql.") ";
+		//$res = $this->get_data($search);
+		return $this->total_count($search);
+	}
+	
 	public function checkAvailableByTime(){
 		$current_hour = date("H");
 		$current_window = 0;
@@ -21,11 +28,10 @@ class Voucher_Model extends APP_Model{
 		}
 		$won = $this->getTotalContentantForToday();
 		$available = $current_window - $won;
+		echo $available;
 		if($available > 0){
-			echo $available."work wor fuck!";
 			return true;
 		}else{
-			echo "not working! fuck!";
 			return false;
 		}
 	}
@@ -46,9 +52,12 @@ class Voucher_Model extends APP_Model{
 		$this->_result['status']     = 'success'; 
 		$this->_result['data']       = $list;	
 		
-		$randomPrizeNo = mt_rand(0, count($list)-1);
-		print_pre($list[$randomPrizeNo]);
-		//return $list;
+		if(count($list)){
+			$randomPrizeNo = mt_rand(0, count($list)-1);
+			return $list[$randomPrizeNo];
+		}else{
+			return count($list);
+		}
 	}
 	
 	private function getTotalContentantForToday(){
@@ -104,6 +113,17 @@ class Voucher_Model extends APP_Model{
 		}
 		
 		return $this->_result;
+	}
+	
+	public function updateContestantById($contestant_id, $id){
+		$data = array(
+			'contestant_id' => $contestant_id,
+			'winner_date'	=> localDate(),
+			'updated'	=> localDate(),
+		);
+		
+		$id = $this->update($id, $data);
+		return $id;
 	}
 	
 	public function editContestant(){

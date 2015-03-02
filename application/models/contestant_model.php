@@ -10,6 +10,42 @@ class Contestant_Model extends APP_Model{
 		$this->_result['data']       = array();	
 	}
 	
+	public function winPrize($prize, $info){
+		$times = $this->getParticipantTimes($info['mobile']);
+		$allId = $this->getIdByMobile($info['mobile']);
+		$won = $this->voucher_model->checkWonBefore($allId);
+		
+		$prize_list = $this->config->item("prizes");
+		
+		$wr = $this->config->item("winning_rate");
+		$max = (int) (1 / $wr[$times]);
+		if(mt_rand(1, $max) === 1 && !$won){
+			$this->voucher_model->updateContestantById($info['id'], $prize['id']);
+			return 'You have won '.$prize_list[$prize['prize_id']];
+		}else{
+			return 'Better luck next time';
+		}
+	}
+	
+	private function getIdByMobile($mobile){
+		$filter = array(
+			"mobile" => $mobile,
+		);
+		$res = $this->get_data($filter);
+		$list = array();
+		foreach($res as $k => $val){
+			array_push($list, $val['id']);
+		}
+		return $list;
+	}
+	
+	private function getParticipantTimes($mobile){
+		$data = array(
+			"mobile" => $mobile
+		);
+		return $this->total_count($data);
+	}
+	
 	public function getList(){
 		$filter = array(
 		

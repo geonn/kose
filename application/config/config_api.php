@@ -179,12 +179,19 @@ $config['kose_counter'] = array(
 		57 => 'PARKSON CORPORATION SDN BHD-EC MALL',
 	),
 );
+
 $config['time_windows'] = array(
 	1 => 10,
 	2 => 13,
 	3 => 15,
 	4 => 19,
 	5 => 22
+);
+
+$config['winning_rate'] = array(
+	1 => 0.15,
+	2 => 0.30,
+	3 => 0.50,
 );
 /*** 
 Items counter & state
