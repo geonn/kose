@@ -1,5 +1,6 @@
  <form   class="contact">
  	<h4>SEKKISEI helps keep the skin moist, soft and translucent.</h4>
+ 	<div class="error_message" style="display:none;"></div>
     <fieldset class="contact-inner">
       <p class="normal" style="padding-bottom:10px;">Tell us in your own words how SEKKISEI can help the modern-day Cinderellas (in 50 words or less.)</p>
       <p class="contact-input">
@@ -15,17 +16,18 @@
         <li>Winners will be contacted to arrange for the redemption of prizes.</li>
       </ul>
       <p class="contact-submit" style="padding-top:10px;">
-        <input type="submit" id="submitformbutton" value="Submit">
+       <?= $this->config->item('img_loading2') ?> <input type="submit" id="submitformbutton" value="Submit">
       </p>
     </fieldset>
   </form>
   <script type="text/javascript" >	
 		var queryString  = "<?= $this->config->item('domain') ?>/<?= $this->name ?>/";
 		$('#submitformbutton').click(function() {
+			showLoading();
 			var form_data = $('form').serialize();
 			resetError();
-			$.post(queryString+"createSlogan/" , form_data, function(data) {  
-				console.log(data);
+			$.post(queryString+"createSlogan/<?= $key?>" , form_data, function(data) {  
+	 			hideLoading();
 				var obj = jQuery.parseJSON(data); 
 				if(obj.status == "error"){
 					$(".error_message").show();
@@ -41,7 +43,7 @@
 					});
 					
 				}else{
-					setTimeout(function() {location.href=window.location.href= "<?= $this->config->item('domain') ?>/luckydraw";},500);	 
+					location.href=window.location.href= "<?= $this->config->item('domain') ?>/luckydraw/index/<?= $key?>";
 				}		
 						
 			});

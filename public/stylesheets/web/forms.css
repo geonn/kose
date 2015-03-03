@@ -181,7 +181,7 @@ input, textarea, select, label {
   text-align: right;
 }
 .contact-submit > input, .button {
-  display: inline-block !important;
+  display: inline-block ;
   vertical-align: top;
   padding: 0 14px !important;
   height: 29px !important;

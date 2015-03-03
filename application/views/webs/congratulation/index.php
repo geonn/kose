@@ -1,7 +1,7 @@
  <form action="#" class="contact">
- 	<h4>CONGRATULATIONS!</h4>
+ 	<h4><?= $message?><h4>
     <fieldset class="contact-inner">
-      <h4><?= $message?><h4>
+      <h4>You have won<h4>
       <center>
       <ul class="boxes">
         <li style="float:none;"><a href="#">B</a></li>

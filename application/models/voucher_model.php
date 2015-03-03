@@ -86,76 +86,20 @@ class Voucher_Model extends APP_Model{
 	}
 	
 	 
-	public function addContestant(){
+	public function addVoucher(){
 		 
-		$check     = $this->validateParams(); 
-		if(empty($check)) {
+		for($i = 1; $i <= $this->param['amount']; $i++){
 			$data = array(
-				'name'		=> $this->param['name'],
-				'ic'			=> $this->param['ic'],
-				'mobile'	=> $this->param['mobile'], 
-				'email'		=> $this->param['email'],
-				'state'		=> $this->param['state'],
-				'slogan'	=> !empty($this->param['slogan']) ? $this->param['slogan'] : "", 
-				'created'			  => localDate(),
-				'updated'			  => localDate(),
+				'prize_id' =>  $this->param['prize_id'],
+				'area_id'  =>  $this->param['area_id'],
+				'created' =>  localDate(),
+				'updated' =>  localDate(),
 			);
-			$id = $this->insert($data);
 			
-			$this->_result['status']     = 'success'; 
-			$this->_result['data']       = $id;
-		}else{
-			$this->_result['status']     = 'error';
-			$this->_result['error_code'] = $check;
-			foreach($check as $k => $val){
-				$this->_result['data'][$k] = $this->code[$val];
-			}
+			$this->insert($data);
+			
 		}
 		
-		return $this->_result;
-	}
-	
-	public function updateContestantById($contestant_id, $id){
-		$data = array(
-			'contestant_id' => $contestant_id,
-			'winner_date'	=> localDate(),
-			'updated'	=> localDate(),
-		);
-		
-		$id = $this->update($id, $data);
-		return $id;
-	}
-	
-	public function editContestant(){
-		$check     = $this->validateParams(); 
-		
-		if(empty($check)) {
-			$data = array(
-				'name' 					 => $this->param['name'],
-				'serial' 					=> $this->param['serial'],
-				'ic' 				    	  => $this->param['ic'],
-				'contact_home'   => $this->param['contact_home'],
-				'contact_mobile' => $this->param['contact_mobile'],
-				'contact_office' 	=> $this->param['contact_office'],
-				'age' 						=> $this->param['age'],
-				'email' 				  => $this->param['email'],
-				'mail_address' 	   => $this->param['mail_address'],
-				'home_address'	=> $this->param['home_address'],
-				'updated'	=> localDate(),
-			);
-			$id = $this->update($this->param['id'], $data);
-			$this->logger_model->addLogger('edit',$this->_table, $this->param['name']);
-			$this->_result['status']     = 'success'; 
-			$this->_result['data']       = $id;
-		}else{
-			$this->_result['status']     = 'error';
-			$this->_result['error_code'] = $check;
-			foreach($check as $k => $val){
-				$this->_result['data'][$k] = $this->code[$val];
-			}
-		}
-	 
-		return $this->_result;
 	}
 	 
 	

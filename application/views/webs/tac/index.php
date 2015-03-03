@@ -1,16 +1,17 @@
 <form class="contact">
 <h4>Verify TAC</h4>
+<div class="error_message" style="display:none;"></div>
   <fieldset class="contact-inner">
     <p class="contact-input">
     	Name: <?= $info['name'] ?><br/>
       Mobile No.: <?= $info['mobile'] ?>
     </p>
     <p class="contact-input" style="margin-top:10px;">
-      <input type="text" style="width:120px; float:left;" name="tac" placeholder="TAC" autofocus/>
+    	<?= form_input('tac', '','class="required 123 124 num_only" placeholder="TAC No." autofocus style="width:120px; float:left;"'); ?>
       <input type="button" id="requestformbutton" style="width:auto; float:left; margin-left:10px;" class="button" value="Request For TAC"/>
     </p>
     <p class="contact-submit" style="padding-top:10px;">
-      <input type="submit" id="submitformbutton" value="Verify">
+      <?= $this->config->item('img_loading2') ?> <input type="submit" id="submitformbutton" value="Verify">
     </p>
   </fieldset>
 </form>
@@ -18,8 +19,7 @@
 var queryString  = "<?= $this->config->item('domain') ?>/<?= $this->name ?>/";
 
 $('#requestformbutton').click(function() {
-	$.post(queryString+"requestTac/<?= $key?>", function(data) {  
-		console.log(data);
+	$.post(queryString+"requestTac/<?= $key?>", function(data) {   
 		var obj = jQuery.parseJSON(data); 
 		if(obj.status == "success"){
 			alert("TAC number sent to your mobile.");
@@ -28,9 +28,11 @@ $('#requestformbutton').click(function() {
 });
 
 $('#submitformbutton').click(function() {
+	showLoading();
 	var form_data = $('form').serialize();
-	resetError(); 
+	resetError();  
 	$.post(queryString+"submitTac/<?= $key?>/" , form_data, function(data) { 
+ 		hideLoading();
 		var obj = jQuery.parseJSON(data); 
 		if(obj.status == "error"){
 			$(".error_message").show();
@@ -47,7 +49,7 @@ $('#submitformbutton').click(function() {
 			});
 			
 		}else{
-			setTimeout(function() {location.href=window.location.href= "<?= $this->config->item('domain') ?>/tac/index/"+obj.data;},500);	 
+			location.href=window.location.href= "<?= $this->config->item('domain') ?>/slogan/index/<?= $key?>";
 		}		
 				
 	});

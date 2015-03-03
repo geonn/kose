@@ -57,4 +57,14 @@ function resetError(){
 	$(".error_message").html("");
 	$(".required").css("border","");
 	$(".required").css("outline","");
+}     
+
+function showLoading(){
+	$("#loading").show();
+	$("#submitformbutton").hide();
+}
+
+function hideLoading(){
+	$("#loading").hide();
+	$("#submitformbutton").show();
 }

@@ -4,6 +4,11 @@
 define('API_USER', 'webadmin');
 define('API_KEY' , '981bce3f4b506c6eb5473debb3275c27');
 
+define('SMS_COMPANY' , 'mncc');
+define('SMS_USER'    , 'leonardo');
+define('SMS_PASSWORD', 'bGUwbmFyZDA=');
+define('SMS_GATEWAY' , 'L');
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes

@@ -8,10 +8,9 @@ class slogan extends Web_Controller {
 		parent::__construct();	
 	}
 	
-	public function index(){
+	public function index($key){
 		$data = array(); 
-		echo encode_key('123');
-		echo decode_key('MTIz');
+		$data['key'] = $key;
 		$this->_render_form('index',$data);
 	}
 	
@@ -19,7 +18,8 @@ class slogan extends Web_Controller {
 	* submit slogan from contestant
 	* @param: 
 	***/
-	public function createSlogan(){
+	public function createSlogan($key){
+		$this->param['id'] = decode_key($key);
 		$result = $this->contestant_model->updateContestantWithField('slogan');	   
 		echo generate_json($result);	 
 	}

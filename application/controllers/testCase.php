@@ -40,4 +40,12 @@ class testCase extends Web_Controller {
 		
 		echo generate_json($result);	 
 	}
+	
+	function generateVoucher(){
+		$this->param['prize_id'] = "2";	
+		$this->param['area_id'] = "ns";	
+		$this->param['amount'] = 3;	
+		 
+		$this->voucher_model->addVoucher();
+	}
 }

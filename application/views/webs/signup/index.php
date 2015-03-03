@@ -29,17 +29,20 @@
       </p>
       
       <p class="contact-submit" style="padding-top:10px;">
-        <input type="submit" id="submitformbutton" value="Next">
+     		<?= $this->config->item('img_loading2') ?> <input type="submit" id="submitformbutton" value="Next">
       </p>
     </fieldset>
   </form>
 <script type="text/javascript" >	
+
 var queryString  = "<?= $this->config->item('domain') ?>/<?= $this->name ?>/";
 $('#submitformbutton').click(function() {
+	showLoading();
 	var form_data = $('form').serialize();
 	resetError();
 	$.post(queryString+"createContestant/" , form_data, function(data) {  
 		var obj = jQuery.parseJSON(data); 
+		hideLoading();
 		if(obj.status == "error"){
 			$(".error_message").show();
 			var eCode = obj.error_code ;

@@ -79,8 +79,8 @@ class Contestant_Model extends APP_Model{
 			/*** Exceeded Participant Times***/
 			if($checkCounter > $this->config->item('participantLimit')){
 				$this->_result['status']     = 'error'; 
-				$this->_result['error_code'] = 120;
-				$this->_result['data']  	   = $this->code[120];
+				$this->_result['error_code'][] = 120;
+				$this->_result['data'][]  	   = $this->code[120];
 				return $this->_result;
 			}
 			

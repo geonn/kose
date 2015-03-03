@@ -32,7 +32,7 @@ $config['api_code'] = array(
 	111   => 'Empty order destination area',
 	112   => 'Empty order destination location',
 	113   => 'Empty contestant state',
-	114   => 'No user',
+	114   => 'Invalid contestant',
 	115   => 'Empty contestant name',
 	116   => 'Empty contestant identity card number',
 	117   => 'Empty contestant mobile number',
@@ -92,6 +92,7 @@ $config['state'] = array(
 	'sb' => 'Sabah',
 	'sl' => 'Selangor',
 	'sr' => 'Sarawak',
+	'tr' => 'Terengganu'
 );
 
 //
@@ -193,6 +194,7 @@ $config['winning_rate'] = array(
 	2 => 0.30,
 	3 => 0.50,
 );
+
 /*** 
 Items counter & state
 	1 - with Kose counter
